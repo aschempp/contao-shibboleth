@@ -37,14 +37,21 @@ $GLOBALS['TL_DCA']['tl_shibboleth'] = array
 	// Config
 	'config' => array
 	(
-		'dataContainer'               => 'File',
-		'closed'                      => true,
+		'dataContainer'			=> 'File',
+		'closed'				=> true,
 	),
 
 	// Palettes
 	'palettes' => array
 	(
-		'default'                     => '{url_legend},shibLoginURL,shibLogoutURL,shibSSL;{backend_legend},shibForceBackend',
+		'__selector__'			=> array('shibForceBackend'),
+		'default'				=> '{url_legend},shibLoginURL,shibLogoutURL,shibSSL;{backend_legend},shibForceBackend',
+	),
+	
+	// Subpalettes
+	'subpalettes' => array
+	(
+		'shibForceBackend'		=> 'shibForceHosts',
 	),
 
 	// Fields
@@ -52,27 +59,33 @@ $GLOBALS['TL_DCA']['tl_shibboleth'] = array
 	(
 		'shibLoginURL' => array
 		(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_shibboleth']['shibLoginURL'],
-			'inputType'		=> 'text',
-			'eval'			=> array('mandatory'=>true, 'rgxp'=>'url', 'decodeEntities'=>true, 'tl_class'=>'long'),
+			'label'				=> &$GLOBALS['TL_LANG']['tl_shibboleth']['shibLoginURL'],
+			'inputType'			=> 'text',
+			'eval'				=> array('mandatory'=>true, 'rgxp'=>'url', 'decodeEntities'=>true, 'tl_class'=>'long'),
 		),
 		'shibLogoutURL' => array
 		(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_shibboleth']['shibLogoutURL'],
-			'inputType'		=> 'text',
-			'eval'			=> array('mandatory'=>true, 'rgxp'=>'url', 'decodeEntities'=>true, 'tl_class'=>'long'),
+			'label'				=> &$GLOBALS['TL_LANG']['tl_shibboleth']['shibLogoutURL'],
+			'inputType'			=> 'text',
+			'eval'				=> array('mandatory'=>true, 'rgxp'=>'url', 'decodeEntities'=>true, 'tl_class'=>'long'),
 		),
 		'shibSSL' => array
 		(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_shibboleth']['shibSSL'],
-			'inputType'		=> 'checkbox',
-			'eval'			=> array('isBoolean'=>true, 'tl_class'=>'clr'),
+			'label'				=> &$GLOBALS['TL_LANG']['tl_shibboleth']['shibSSL'],
+			'inputType'			=> 'checkbox',
+			'eval'				=> array('isBoolean'=>true, 'tl_class'=>'clr'),
 		),
 		'shibForceBackend' => array
 		(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_shibboleth']['shibForceBackend'],
-			'inputType'		=> 'checkbox',
-			'eval'			=> array('isBoolean'=>true),
+			'label'				=> &$GLOBALS['TL_LANG']['tl_shibboleth']['shibForceBackend'],
+			'inputType'			=> 'checkbox',
+			'eval'				=> array('isBoolean'=>true, 'submitOnChange'=>true),
+		),
+		'shibForceHosts' => array
+		(
+			'label'				=> &$GLOBALS['TL_LANG']['tl_shibboleth']['shibForceHosts'],
+			'inputType'			=> 'textarea',
+			'eval'				=> array('style'=>'height:40px', 'tl_class'=>'clr'),
 		),
 	)
 );

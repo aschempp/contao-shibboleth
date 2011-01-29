@@ -35,6 +35,7 @@ $GLOBALS['TL_LANG']['tl_shibboleth']['shibLoginURL']		= array('Login URL', 'The 
 $GLOBALS['TL_LANG']['tl_shibboleth']['shibLogoutURL']		= array('Logout URL', 'The URL to your logout gateway. Defaults to "Shibboleth.sso/Logout" on the active domain.');
 $GLOBALS['TL_LANG']['tl_shibboleth']['shibSSL']				= array('SSL authentication', 'Check if SSL should be used for login.');
 $GLOBALS['TL_LANG']['tl_shibboleth']['shibForceBackend']	= array('Force backend login', 'Check here if users should automatically be redirected to the shibboleth authentication if they try to access the backend.');
+$GLOBALS['TL_LANG']['tl_shibboleth']['shibForceHosts']		= array('Shibboleth Hosts', 'Please enter a comma separated list of host names/domains to force backend login for.');
 
 
 /**

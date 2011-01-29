@@ -30,7 +30,7 @@
 
 class Shibboleth extends Controller
 {
-	
+
 	public function authenticateBackend($strBuffer)
 	{
 		$script = basename($this->Environment->script);
@@ -40,8 +40,18 @@ class Shibboleth extends Controller
 		{
 			if (!$this->sessionActive() && $GLOBALS['TL_CONFIG']['shibForceBackend'])
 			{
+				if ($GLOBALS['TL_CONFIG']['shibForceBackend'] != '')
+				{
+					$arrDomains = trimsplit(',', $GLOBALS['TL_CONFIG']['shibForceHosts']);
+
+					if (!in_array($this->Environment->host, $arrDomains))
+					{
+						return $strBuffer;
+					}
+				}
+
 				$strUrl = ($GLOBALS['TL_CONFIG']['shibSSL'] ? str_replace('http://', 'https://', $this->Environment->base) : $this->Environment->base) . $backend . 'index.php';
-				
+
 				$this->redirect($GLOBALS['TL_CONFIG']['shibLoginURL'] . '?target=' . urlencode($strUrl));
 			}
 			elseif ($this->Input->get('logout') && $this->sessionActive())
@@ -51,21 +61,21 @@ class Shibboleth extends Controller
 			elseif ($this->sessionActive())
 			{
 				$this->import('Database');
-				
+
 				$eppn = explode('@', $_SERVER['eppn']);
-				
+
 				$objUser = $this->Database->prepare("SELECT * FROM tl_user WHERE username=?")->limit(1)->execute($eppn[0]);
-				
+
 				if ($objUser->numRows && $this->login($objUser))
 				{
 					$strUrl = $backend . 'main.php';
-					
+
 					// Redirect to last page visited
 					if (strlen($this->Input->get('referer', true)))
 					{
 						$strUrl = base64_decode($this->Input->get('referer', true));
 					}
-					
+
 					$this->redirect($strUrl);
 				}
 			}
@@ -74,11 +84,11 @@ class Shibboleth extends Controller
 		{
 			return str_replace($backend.'index.php', $backend.'index.php?logout=1', $strBuffer);
 		}
-		
+
 		return $strBuffer;
 	}
-	
-	
+
+
 	public function authenticateFrontend($blnForce=false)
 	{
 		if ($this->sessionActive())
