@@ -36,17 +36,21 @@ $GLOBALS['TL_LANG']['tl_shibboleth']['shibLogoutURL']		= array('Logout URL', 'Th
 $GLOBALS['TL_LANG']['tl_shibboleth']['shibSSL']				= array('SSL authentication', 'Check if SSL should be used for login.');
 $GLOBALS['TL_LANG']['tl_shibboleth']['shibForceBackend']	= array('Force backend login', 'Check here if users should automatically be redirected to the shibboleth authentication if they try to access the backend.');
 $GLOBALS['TL_LANG']['tl_shibboleth']['shibForceHosts']		= array('Shibboleth Hosts', 'Please enter a comma separated list of host names/domains to force backend login for.');
+$GLOBALS['TL_LANG']['tl_shibboleth']['shibInsertTags']		= array('Insert tags mapper', 'Here you can enter the insert tags that will be used to map.');
 
 
 /**
  * References
  */
-$GLOBALS['TL_LANG']['tl_shibboleth']['edit']			= 'Configure Shibboleth authentication for this system';
+$GLOBALS['TL_LANG']['tl_shibboleth']['edit']					= 'Configure Shibboleth authentication for this system';
+$GLOBALS['TL_LANG']['tl_shibboleth']['shibInsertTags']['key']	= array('Key');
+$GLOBALS['TL_LANG']['tl_shibboleth']['shibInsertTags']['value']	= array('Value');
 
 
 /**
  * Legends
  */
-$GLOBALS['TL_LANG']['tl_shibboleth']['url_legend']		= 'URLs';
-$GLOBALS['TL_LANG']['tl_shibboleth']['backend_legend']	= 'Backend Configuration';
+$GLOBALS['TL_LANG']['tl_shibboleth']['url_legend']			= 'URLs';
+$GLOBALS['TL_LANG']['tl_shibboleth']['backend_legend']		= 'Backend Configuration';
+$GLOBALS['TL_LANG']['tl_shibboleth']['inserttags_legend']	= 'InsertTags';
 

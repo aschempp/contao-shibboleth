@@ -89,6 +89,29 @@ class Shibboleth extends Controller
 	}
 
 
+	public function replaceTags($strTag)
+	{
+		list($tag, $key) = explode('::', $strTag);
+
+		if ($tag == 'shibboleth')
+		{
+			$arrMapper = deserialize($GLOBALS['TL_CONFIG']['shibInsertTags'], true);
+
+			foreach ($arrMapper as $arrItem)
+			{
+				if ($arrItem['key'] == $key)
+				{
+					return trim($_SERVER[$arrItem['value']]);
+				}
+			}
+
+			return '';
+		}
+
+		return false;
+	}
+
+
 	public function authenticateFrontend($blnForce=false)
 	{
 		if ($this->sessionActive())

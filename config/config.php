@@ -51,6 +51,7 @@ $GLOBALS['FE_MOD']['user']['shibbolethlogin'] = 'ModuleShibbolethLogin';
  * Hooks
  */
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][]	= array('Shibboleth', 'authenticateBackend');
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][]	= array('Shibboleth', 'replaceTags');
 
 
 /**

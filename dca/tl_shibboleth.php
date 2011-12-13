@@ -45,7 +45,7 @@ $GLOBALS['TL_DCA']['tl_shibboleth'] = array
 	'palettes' => array
 	(
 		'__selector__'			=> array('shibForceBackend'),
-		'default'				=> '{url_legend},shibLoginURL,shibLogoutURL,shibSSL;{backend_legend},shibForceBackend',
+		'default'				=> '{url_legend},shibLoginURL,shibLogoutURL,shibSSL;{backend_legend},shibForceBackend;{inserttags_legend},shibInsertTags',
 	),
 	
 	// Subpalettes
@@ -86,6 +86,32 @@ $GLOBALS['TL_DCA']['tl_shibboleth'] = array
 			'label'				=> &$GLOBALS['TL_LANG']['tl_shibboleth']['shibForceHosts'],
 			'inputType'			=> 'textarea',
 			'eval'				=> array('style'=>'height:40px', 'tl_class'=>'clr'),
+		),
+		'shibInsertTags' => array
+		(
+			'label'				=> &$GLOBALS['TL_LANG']['tl_shibboleth']['shibInsertTags'],
+			'inputType'			=> 'multiColumnWizard',
+			'eval'				=> array
+			(
+				'tl_class'=>'clr',
+				'columnFields'=>array
+				(
+					'key' => array
+					(
+						'name'		=> 'key',
+						'label'		=> &$GLOBALS['TL_LANG']['tl_shibboleth']['shibInsertTags']['key'],
+						'inputType'	=> 'text',
+						'eval'		=> array('style'=>'width:200px;')
+					),
+					'value' => array
+					(
+						'name'		=> 'value',
+						'label'		=> &$GLOBALS['TL_LANG']['tl_shibboleth']['shibInsertTags']['value'],
+						'inputType'	=> 'text',
+						'eval'		=> array('style'=>'width:200px;')
+					)
+				),
+			),
 		),
 	)
 );
