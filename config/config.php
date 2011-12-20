@@ -48,6 +48,12 @@ $GLOBALS['FE_MOD']['user']['shibbolethlogin'] = 'ModuleShibbolethLogin';
 
 
 /**
+ * Form fields
+ */
+$GLOBALS['TL_FFL']['shibbolethCourse'] = 'FormShibbolethCourse';
+
+
+/**
  * Hooks
  */
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][]	= array('Shibboleth', 'authenticateBackend');
