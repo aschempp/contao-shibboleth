@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2010 Leo Feyer
+ * Copyright (C) 2005-2011 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Andreas Schempp 2011
+ * @copyright  Andreas Schempp 2012
  * @author     Andreas Schempp <andreas@schempp.ch>
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  * @version    $Id$
@@ -29,13 +29,7 @@
 
 
 /**
- * Miscellaneous
+ * Palettes
  */
-$GLOBALS['TL_LANG']['MSC']['shibLogin']	= 'Login with Shibboleth';
-
-
-/**
- * Form fields
- */
-$GLOBALS['TL_LANG']['FFL']['shibbolethCourse'][] = 'Shibboleth Course';
+$GLOBALS['TL_DCA']['tl_form_field']['palettes']['shibbolethCourse']		= '{type_legend},type,name,label;{fconfig_legend},mandatory;{expert_legend:hide},class,accesskey;{submit_legend},addSubmit';
 

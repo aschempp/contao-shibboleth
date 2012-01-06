@@ -41,10 +41,6 @@ class FormShibbolethCourse extends FormSelectMenu
 	{
 		switch ($strKey)
 		{
-			case 'courses':
-				$this->arrCourses = trimsplit(';', $varValue);
-				break;
-				
 			default:
 				parent::__set($strKey, $varValue);
 				break;
@@ -58,6 +54,8 @@ class FormShibbolethCourse extends FormSelectMenu
 	 */
 	public function generate()
 	{
+		$this->arrCourses = preg_split('/;?\{[A-Z\.0-9]+\}/', $_SERVER['umnCourse']);
+		
 		if (!is_array($this->arrCourses) || count($this->arrCourses) < 1)
 		{
 			return parent::generate();
@@ -75,6 +73,9 @@ class FormShibbolethCourse extends FormSelectMenu
 		// Generate options
 		foreach ($this->arrCourses as $strCourse)
 		{
+			if ($strCourse == '')
+				continue;
+			
 			$intYear = substr($strCourse, 0, 2);
 			$strTerm = $arrTerms[substr($strCourse, 2, 1)];
 			$strDesignator = str_replace('_', '', substr($strCourse, 4, 4));
