@@ -54,7 +54,7 @@ class FormShibbolethCourse extends FormSelectMenu
 	 */
 	public function generate()
 	{
-		$this->arrCourses = preg_split('/;?\{[A-Z\.0-9]+\}/', $_SERVER['umnCourse']);
+		$this->arrCourses = preg_split('/;?[A-Z\.0-9_]+/', $_SERVER['umnCourse']);
 		
 		if (!is_array($this->arrCourses) || count($this->arrCourses) < 1)
 		{
