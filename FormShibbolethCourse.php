@@ -21,32 +21,15 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Andreas Schempp 2010
+ * @copyright  Andreas Schempp 2010-2012
  * @author     Andreas Schempp <andreas@schempp.ch>
  * @license    http://opensource.org/licenses/lgpl-3.0.html
- * @version    $Id$
  */
 
 
 
 class FormShibbolethCourse extends FormSelectMenu
 {
-
-	/**
-	 * Add specific attributes
-	 * @param string
-	 * @param mixed
-	 */
-	public function __set($strKey, $varValue)
-	{
-		switch ($strKey)
-		{
-			default:
-				parent::__set($strKey, $varValue);
-				break;
-		}
-	}
-
 
 	/**
 	 * Generate the widget and return it as string
@@ -94,3 +77,4 @@ class FormShibbolethCourse extends FormSelectMenu
 		return parent::generate();
 	}
 }
+

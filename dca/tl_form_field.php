@@ -24,12 +24,11 @@
  * @copyright  Andreas Schempp 2012
  * @author     Andreas Schempp <andreas@schempp.ch>
  * @license    http://opensource.org/licenses/lgpl-3.0.html
- * @version    $Id$
  */
 
 
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_form_field']['palettes']['shibbolethCourse']		= '{type_legend},type,name,label;{fconfig_legend},mandatory;{expert_legend:hide},class,accesskey;{submit_legend},addSubmit';
+$GLOBALS['TL_DCA']['tl_form_field']['palettes']['shibbolethCourse']		= '{type_legend},type,name,label;{fconfig_legend},mandatory;{expert_legend:hide},class,accesskey,loadSession;{submit_legend},addSubmit';
 
