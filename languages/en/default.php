@@ -32,10 +32,12 @@
  * Miscellaneous
  */
 $GLOBALS['TL_LANG']['MSC']['shibLogin']	= 'Login with Shibboleth';
+$GLOBALS['TL_LANG']['ERR']['courseDate'] = 'The entered date is invalid. Acceptable dates are between %s and %s.';
 
 
 /**
  * Form fields
  */
-$GLOBALS['TL_LANG']['FFL']['shibbolethCourse'][] = 'Shibboleth Course';
+$GLOBALS['TL_LANG']['FFL']['shibbolethCourse'] = array('Shibboleth Course');
+$GLOBALS['TL_LANG']['FFL']['courseDate'] = array('Course Date');
 

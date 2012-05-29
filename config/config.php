@@ -51,6 +51,7 @@ $GLOBALS['FE_MOD']['user']['shibbolethlogin'] = 'ModuleShibbolethLogin';
  * Form fields
  */
 $GLOBALS['TL_FFL']['shibbolethCourse'] = 'FormShibbolethCourse';
+$GLOBALS['TL_FFL']['courseDate'] = 'FormCourseDate';
 
 
 /**
