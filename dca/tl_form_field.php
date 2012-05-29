@@ -31,4 +31,5 @@
  * Palettes
  */
 $GLOBALS['TL_DCA']['tl_form_field']['palettes']['shibbolethCourse']		= '{type_legend},type,name,label;{fconfig_legend},mandatory;{expert_legend:hide},class,accesskey,loadSession;{submit_legend},addSubmit';
+$GLOBALS['TL_DCA']['tl_form_field']['palettes']['courseDate'] = '{type_legend},type,name,label;{fconfig_legend},mandatory,maxlength;{expert_legend:hide},value,class,accesskey;{submit_legend},addSubmit';
 
