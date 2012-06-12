@@ -37,9 +37,9 @@ class FormShibbolethCourse extends FormSelectMenu
 	 */
 	public function generate()
 	{
-		$this->arrCourses = preg_split('/;?[A-Z\.0-9_]+/', $_SERVER['umnCourse']);
+		$this->arrCourses = explode(';', $_SERVER['umnCourse']);
 		
-		if (!is_array($this->arrCourses) || count($this->arrCourses) < 1)
+		if (!is_array($this->arrCourses) || count($this->arrCourses) < 1 || $this->arrCourses[0] == '')
 		{
 			return parent::generate();
 		}
@@ -53,6 +53,8 @@ class FormShibbolethCourse extends FormSelectMenu
 			5 => 'Fall'
 		);
 
+		$curYear = date('y');
+
 		// Generate options
 		foreach ($this->arrCourses as $strCourse)
 		{
@@ -60,6 +62,10 @@ class FormShibbolethCourse extends FormSelectMenu
 				continue;
 			
 			$intYear = substr($strCourse, 0, 2);
+
+			if ($intYear != $curYear)
+				continue;
+
 			$strTerm = $arrTerms[substr($strCourse, 2, 1)];
 			$strDesignator = str_replace('_', '', substr($strCourse, 4, 4));
 			$strNumber = str_replace('_', '', substr($strCourse, 8, 5));
